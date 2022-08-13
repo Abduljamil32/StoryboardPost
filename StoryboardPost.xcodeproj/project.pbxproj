@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1102C12F28A7CAB900385E93 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102C12E28A7CAB900385E93 /* HomeViewModel.swift */; };
+		1102C13228A7D5EA00385E93 /* CreateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102C13128A7D5EA00385E93 /* CreateViewModel.swift */; };
+		1102C13528A7D7A200385E93 /* EditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1102C13428A7D7A200385E93 /* EditViewModel.swift */; };
 		117F08F428892BAA006457E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F08F328892BAA006457E6 /* AppDelegate.swift */; };
 		117F08F628892BAA006457E6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F08F528892BAA006457E6 /* SceneDelegate.swift */; };
 		117F08FB28892BAA006457E6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 117F08F928892BAA006457E6 /* Main.storyboard */; };
@@ -22,9 +25,14 @@
 		117F091A28893370006457E6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F091928893370006457E6 /* Post.swift */; };
 		117F091D2889352F006457E6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F091B2889352F006457E6 /* PostTableViewCell.swift */; };
 		117F091E2889352F006457E6 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 117F091C2889352F006457E6 /* PostTableViewCell.xib */; };
+		117F0943288A81DF006457E6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F0942288A81DF006457E6 /* Network.swift */; };
+		D9555277C31D02A694299315 /* Pods_StoryboardPost.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4A8FE2601EDA6870D0853FF /* Pods_StoryboardPost.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1102C12E28A7CAB900385E93 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1102C13128A7D5EA00385E93 /* CreateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewModel.swift; sourceTree = "<group>"; };
+		1102C13428A7D7A200385E93 /* EditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewModel.swift; sourceTree = "<group>"; };
 		117F08F028892BAA006457E6 /* StoryboardPost.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryboardPost.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		117F08F328892BAA006457E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		117F08F528892BAA006457E6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +50,10 @@
 		117F091928893370006457E6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		117F091B2889352F006457E6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		117F091C2889352F006457E6 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		117F0942288A81DF006457E6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		C4A8FE2601EDA6870D0853FF /* Pods_StoryboardPost.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StoryboardPost.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C752AB9EF7F2EE8D0D36F484 /* Pods-StoryboardPost.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardPost.release.xcconfig"; path = "Target Support Files/Pods-StoryboardPost/Pods-StoryboardPost.release.xcconfig"; sourceTree = "<group>"; };
+		D5884F8F6CB27438D31F177A /* Pods-StoryboardPost.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StoryboardPost.debug.xcconfig"; path = "Target Support Files/Pods-StoryboardPost/Pods-StoryboardPost.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +61,74 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9555277C31D02A694299315 /* Pods_StoryboardPost.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1102C12A28A7CA7000385E93 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				1102C12D28A7CAA900385E93 /* viewmodel */,
+				117F090B28892C3C006457E6 /* HomeViewController.swift */,
+				117F090C28892C3C006457E6 /* HomeViewController.xib */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		1102C12B28A7CA7700385E93 /* edit */ = {
+			isa = PBXGroup;
+			children = (
+				1102C13328A7D79000385E93 /* viewmodel */,
+				117F09132889313C006457E6 /* EditViewController.swift */,
+				117F09142889313C006457E6 /* EditViewController.xib */,
+			);
+			path = edit;
+			sourceTree = "<group>";
+		};
+		1102C12C28A7CA7C00385E93 /* create */ = {
+			isa = PBXGroup;
+			children = (
+				1102C13028A7D5D800385E93 /* viewmodel */,
+				117F090F2889312A006457E6 /* CreateViewController.swift */,
+				117F09102889312A006457E6 /* CreateViewController.xib */,
+			);
+			path = create;
+			sourceTree = "<group>";
+		};
+		1102C12D28A7CAA900385E93 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				1102C12E28A7CAB900385E93 /* HomeViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		1102C13028A7D5D800385E93 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				1102C13128A7D5EA00385E93 /* CreateViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
+		1102C13328A7D79000385E93 /* viewmodel */ = {
+			isa = PBXGroup;
+			children = (
+				1102C13428A7D7A200385E93 /* EditViewModel.swift */,
+			);
+			path = viewmodel;
+			sourceTree = "<group>";
+		};
 		117F08E728892BAA006457E6 = {
 			isa = PBXGroup;
 			children = (
 				117F08F228892BAA006457E6 /* StoryboardPost */,
 				117F08F128892BAA006457E6 /* Products */,
+				1F8B1D8A15783575BEF048A7 /* Pods */,
+				6A938E6EC80075C6E9A937B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +143,7 @@
 		117F08F228892BAA006457E6 /* StoryboardPost */ = {
 			isa = PBXGroup;
 			children = (
+				117F0941288A81C0006457E6 /* network */,
 				117F090828892BD4006457E6 /* Controllers */,
 				117F090A28892BE2006457E6 /* Cells */,
 				117F090928892BDA006457E6 /* Models */,
@@ -99,12 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				117F0917288931F4006457E6 /* BaseViewController.swift */,
-				117F090B28892C3C006457E6 /* HomeViewController.swift */,
-				117F090C28892C3C006457E6 /* HomeViewController.xib */,
-				117F090F2889312A006457E6 /* CreateViewController.swift */,
-				117F09102889312A006457E6 /* CreateViewController.xib */,
-				117F09132889313C006457E6 /* EditViewController.swift */,
-				117F09142889313C006457E6 /* EditViewController.xib */,
+				1102C12A28A7CA7000385E93 /* home */,
+				1102C12C28A7CA7C00385E93 /* create */,
+				1102C12B28A7CA7700385E93 /* edit */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -126,6 +193,31 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		117F0941288A81C0006457E6 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				117F0942288A81DF006457E6 /* Network.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		1F8B1D8A15783575BEF048A7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D5884F8F6CB27438D31F177A /* Pods-StoryboardPost.debug.xcconfig */,
+				C752AB9EF7F2EE8D0D36F484 /* Pods-StoryboardPost.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		6A938E6EC80075C6E9A937B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C4A8FE2601EDA6870D0853FF /* Pods_StoryboardPost.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +225,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 117F090428892BAC006457E6 /* Build configuration list for PBXNativeTarget "StoryboardPost" */;
 			buildPhases = (
+				70D13CF7BC54F5BDFE2E53B5 /* [CP] Check Pods Manifest.lock */,
 				117F08EC28892BAA006457E6 /* Sources */,
 				117F08ED28892BAA006457E6 /* Frameworks */,
 				117F08EE28892BAA006457E6 /* Resources */,
+				BCB260C90851EF1CB01C461D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,16 +290,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		70D13CF7BC54F5BDFE2E53B5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StoryboardPost-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCB260C90851EF1CB01C461D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryboardPost/Pods-StoryboardPost-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StoryboardPost/Pods-StoryboardPost-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StoryboardPost/Pods-StoryboardPost-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		117F08EC28892BAA006457E6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1102C13528A7D7A200385E93 /* EditViewModel.swift in Sources */,
 				117F09152889313C006457E6 /* EditViewController.swift in Sources */,
 				117F09112889312A006457E6 /* CreateViewController.swift in Sources */,
 				117F08F428892BAA006457E6 /* AppDelegate.swift in Sources */,
+				1102C13228A7D5EA00385E93 /* CreateViewModel.swift in Sources */,
+				1102C12F28A7CAB900385E93 /* HomeViewModel.swift in Sources */,
 				117F091D2889352F006457E6 /* PostTableViewCell.swift in Sources */,
 				117F08F628892BAA006457E6 /* SceneDelegate.swift in Sources */,
+				117F0943288A81DF006457E6 /* Network.swift in Sources */,
 				117F091A28893370006457E6 /* Post.swift in Sources */,
 				117F090D28892C3C006457E6 /* HomeViewController.swift in Sources */,
 				117F0918288931F4006457E6 /* BaseViewController.swift in Sources */,
@@ -350,6 +490,7 @@
 		};
 		117F090528892BAC006457E6 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D5884F8F6CB27438D31F177A /* Pods-StoryboardPost.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -377,6 +518,7 @@
 		};
 		117F090628892BAC006457E6 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C752AB9EF7F2EE8D0D36F484 /* Pods-StoryboardPost.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -5,12 +5,20 @@ import Foundation
 class Post: Decodable {
     
     var id: String? = ""
-    var name: String? = ""
-    var phone: String? = ""
+    var title: String? = ""
+    var body: String? = ""
+//    var userId: Int?
     
-    init(name: String, phone: String){
+    init(title: String, body: String){
         
-        self.name = name
-        self.phone = phone
+        self.title = title
+        self.body = body
     }
+    
+    init(id: String, title: String, body: String){
+        self.id = id
+        self.title = title
+        self.body = body
+    }
+   
 }

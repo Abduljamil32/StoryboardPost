@@ -1,9 +1,4 @@
-//
-//  HomeViewController.swift
-//  StoryboardPost
-//
-//  Created by Avaz Mukhitdinov on 21/07/22.
-//
+
 
 import UIKit
 
@@ -11,26 +6,31 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     
     @IBOutlet weak var tableView: UITableView!
-    var items: Array<Post> = Array()
+//    var items: Array<Post> = Array()
+    var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initViews()
-        
+        viewModel.apiPostList()
     }
     
-    // MARK: -- Methods
-    
+    // MARK: -- Method
+
     func initViews() {
         tableView.dataSource = self
         tableView.delegate = self
-        
+        bindViewModel()
         initNavs()
         
-        items.append(Post(name: "Best Friend", phone: "+998 98 001 02 03"))
-        items.append(Post(name: "Bro", phone: "+998 97 777 77 77"))
-        items.append(Post(name: "Me", phone: "+998 93 998 86 89"))
+    }
+    
+    func bindViewModel(){
+        viewModel.controller = self
+        viewModel.items.bind(to: self) {strongSelf, _ in
+            strongSelf.tableView.reloadData()
+        }
     }
     
     func initNavs() {
@@ -39,7 +39,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: refresh, style: .plain, target: self, action: #selector(leftTapped))
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: add, style: .plain, target: self, action: #selector(rightTapped))
-        title = "Contacts"
+        title = "Posts"
     }
     
     func callCreateViewcontroller(){
@@ -47,17 +47,18 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func callEditViewController(){
+    func callEditViewController(post: Post){
         let vc = EditViewController(nibName: "EditViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: vc)
         self.present(navigationController, animated: true, completion: nil)
+        vc.editPost = post
     }
     
     
     // MARK: -- Actions
     
     @objc func leftTapped() {
-        
+        viewModel.apiPostList()
     }
     
     @objc func rightTapped() {
@@ -67,23 +68,23 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     // MARK: -- Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)-> Int{
-        return items.count
+        return viewModel.items.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)-> UITableViewCell{
-        let item = items[indexPath.row]
+        let item = viewModel.items.value[indexPath.row]
         
         let cell = Bundle.main.loadNibNamed("PostTableViewCell", owner: self, options: nil)?.first as! PostTableViewCell
         
-        cell.titleLabel.text = item.name
-        cell.bodyLabel.text = item.phone
+        cell.titleLabel.text = item.title
+        cell.bodyLabel.text = item.body
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(actions: [
-            makeCompleteContextualAction(forRowAt: indexPath, post: items[indexPath.row])
+            makeCompleteContextualAction(forRowAt: indexPath, post:  viewModel.items.value[indexPath.row])
         ])
     }
     
@@ -92,7 +93,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         return UISwipeActionsConfiguration(actions: [
-            makeDeleteContextualAction(forRowAt: indexPath, post: items[indexPath.row])
+            makeDeleteContextualAction(forRowAt: indexPath, post:  viewModel.items.value[indexPath.row])
         ])
     }
     
@@ -105,7 +106,11 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             print("Delete Here")
             
             completion(true)
-            //            self.apiPostDelete(post: post)
+            self.viewModel.apiPostDelete(post: post, handler: { isDeleted in
+                if isDeleted{
+                    self.viewModel.apiPostList()
+                }
+            })
         }
     }
     
@@ -115,8 +120,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             print("Complete Here")
             
             completion(true)
-            //            self.apiPostDelete(post: post)
-            self.callEditViewController()
+            self.callEditViewController(post: post)
         }
     }
     

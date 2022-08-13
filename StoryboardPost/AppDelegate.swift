@@ -33,8 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func commonNavBar() {
-        UINavigationBar.appearance().barTintColor = UIColor.gray
-        UINavigationBar.appearance().backgroundColor = .blue
+        UINavigationBar.appearance().barTintColor = UIColor.black
+        UINavigationBar.appearance().backgroundColor = .systemBlue
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         UINavigationBar.appearance().tintColor = .white
         UINavigationBar.appearance().isTranslucent = false
