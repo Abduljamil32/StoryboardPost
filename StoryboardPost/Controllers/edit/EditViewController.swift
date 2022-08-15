@@ -8,8 +8,6 @@ class EditViewController: BaseViewController {
     
     var viewModel = EditViewModel()
     
-    var editPost: Post?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,14 +19,14 @@ class EditViewController: BaseViewController {
     // MARK: - Methods
     
     func initViews()  {
-        nText.text = editPost?.title
-        btext.text = editPost?.body
+        nText.text = viewModel.editPost?.title
+        btext.text = viewModel.editPost?.body
     }
 
   
     
     @IBAction func editTapped(_ sender: Any) {
-        viewModel.apiEditPost(post: Post(id: (editPost?.id!)!, title: nText.text!, body: btext.text!))
+        viewModel.apiEditPost(post: Post(id: (viewModel.editPost?.id!)!, title: nText.text!, body: btext.text!))
         self.navigationController?.dismiss(animated: true)
     }
     
